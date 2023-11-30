@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class BallController : MonoBehaviour
+public class MainMenuController : MonoBehaviour
 {
-    public Vector2 speed;
-    private Rigidbody2D rig;
-
     // Start is called before the first frame update
     void Start()
     {
-        rig = GetComponent<Rigidbody2D>();
-        rig.velocity = speed;
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void PlayGame()
+    {
+        Debug.Log("Created by Rizky Rafi");
+        SceneManager.LoadScene("Game");
     }
 }
