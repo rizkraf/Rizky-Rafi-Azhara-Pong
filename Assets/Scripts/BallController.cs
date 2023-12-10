@@ -21,8 +21,22 @@ public class BallController : MonoBehaviour
 
     }
 
-    public void ResetBall()
+    public void ResetBall(bool isRight)
     {
+        if (isRight)
+        {
+            speed.x = +Mathf.Abs(speed.x);
+        }
+        else
+        {
+             speed.x = -Mathf.Abs(speed.x);
+        }
         transform.position = new Vector3(resetPosition.x, resetPosition.y, 1);
+        rig.velocity = speed;
+    }
+
+    public void ActivatePUSpeed(float magnitude)
+    {
+        rig.velocity *= magnitude;
     }
 }

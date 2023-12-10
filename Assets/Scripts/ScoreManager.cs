@@ -21,11 +21,10 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    public void AddRightScore(int increment)
+    public void AddRightScore(int increment, bool isRight)
     {
         rightScore += increment;
-        Debug.Log("masuk");
-        ball.ResetBall();
+        ball.ResetBall(isRight);
 
         if (rightScore >= maxScore)
         {
@@ -33,11 +32,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddLeftScore(int increment)
+    public void AddLeftScore(int increment, bool isRight)
     {
         leftScore += increment;
 
-        ball.ResetBall();
+        ball.ResetBall(isRight);
 
         if (leftScore >= maxScore)
         {
