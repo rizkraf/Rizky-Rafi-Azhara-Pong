@@ -22,4 +22,14 @@ public class MainMenuController : MonoBehaviour
         Debug.Log("Created by Rizky Rafi");
         SceneManager.LoadScene("Game");
     }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ToCredit()
+    {
+        SceneManager.LoadScene("Credit");
+    }
 }

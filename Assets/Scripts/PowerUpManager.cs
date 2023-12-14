@@ -13,6 +13,7 @@ public class PowerUpManager : MonoBehaviour
     public int spawnInterval;
     private float timer;
     private float removeTimer;
+    public Collider2D paddle;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,17 +32,11 @@ public class PowerUpManager : MonoBehaviour
             timer -= spawnInterval;
         }
 
-        if (powerUpList.Count == maxPowerUpAmount)
+        if (powerUpList.Count == maxPowerUpAmount && removeTimer > (spawnInterval * 3))
         {
-            if (removeTimer > (spawnInterval * 3))
-            {
-                RemovePowerUp(powerUpList[0]);
-                removeTimer = 0;
-            }
+            RemovePowerUp(powerUpList[0]);
+            removeTimer = 0;
         }
-        Debug.Log(powerUpList.Count);
-        // removeTimer = timer;
-        // if (timer )
     }
 
     public void GenerateRandomPowerUp()
@@ -81,5 +76,10 @@ public class PowerUpManager : MonoBehaviour
         {
             RemovePowerUp(powerUpList[0]);
         }
+    }
+
+    public void GetHitPaddle (Collider2D selectedPaddle)
+    {
+        paddle = selectedPaddle;
     }
 }
